@@ -1,0 +1,1104 @@
+Analysis & Synthesis report for EncryptAndDisplay
+Sat Apr 11 02:46:16 2020
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |EncryptAndDisplay|LCD_DISPLAY_nty:LCD|next_command
+  9. State Machine - |EncryptAndDisplay|LCD_DISPLAY_nty:LCD|state
+ 10. State Machine - |EncryptAndDisplay|AES:ENC|current_state
+ 11. State Machine - |EncryptAndDisplay|AES:ENC|current_action
+ 12. State Machine - |EncryptAndDisplay|AES:ENC|next_action
+ 13. State Machine - |EncryptAndDisplay|AES:ENC|next_state
+ 14. User-Specified and Inferred Latches
+ 15. Registers Removed During Synthesis
+ 16. General Register Statistics
+ 17. Inverted Register Statistics
+ 18. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 19. Parameter Settings for User Entity Instance: LCD_DISPLAY_nty:LCD
+ 20. Port Connectivity Checks: "LCD_DISPLAY_nty:LCD"
+ 21. Port Connectivity Checks: "AES:ENC"
+ 22. Elapsed Time Per Partition
+ 23. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++--------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                         ;
++------------------------------------+-------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Sat Apr 11 02:46:16 2020           ;
+; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
+; Revision Name                      ; EncryptAndDisplay                               ;
+; Top-level Entity Name              ; EncryptAndDisplay                               ;
+; Family                             ; Cyclone II                                      ;
+; Total logic elements               ; 6,385                                           ;
+;     Total combinational functions  ; 5,732                                           ;
+;     Dedicated logic registers      ; 1,127                                           ;
+; Total registers                    ; 1127                                            ;
+; Total pins                         ; 19                                              ;
+; Total virtual pins                 ; 0                                               ;
+; Total memory bits                  ; 0                                               ;
+; Embedded Multiplier 9-bit elements ; 0                                               ;
+; Total PLLs                         ; 0                                               ;
++------------------------------------+-------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP2C70F896C6       ;                    ;
+; Top-level entity name                                                      ; EncryptAndDisplay  ; EncryptAndDisplay  ;
+; Family name                                                                ; Cyclone II         ; Cyclone IV GX      ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; Off                ; Off                ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 8      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                    ;
++----------------------------------+-----------------+-----------------+----------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                             ; Library ;
++----------------------------------+-----------------+-----------------+----------------------------------------------------------+---------+
+; AES_TYPES.vhd                    ; yes             ; User VHDL File  ; C:/Users/Nikita/Desktop/AES+LCD/AES_TYPES.vhd            ;         ;
+; DE2_LCD_DISPLAY_arch.vhd         ; yes             ; User VHDL File  ; C:/Users/Nikita/Desktop/AES+LCD/DE2_LCD_DISPLAY_arch.vhd ;         ;
+; MixColumns.vhd                   ; yes             ; User VHDL File  ; C:/Users/Nikita/Desktop/AES+LCD/MixColumns.vhd           ;         ;
+; ShiftRows.vhd                    ; yes             ; User VHDL File  ; C:/Users/Nikita/Desktop/AES+LCD/ShiftRows.vhd            ;         ;
+; SubBytes.vhd                     ; yes             ; User VHDL File  ; C:/Users/Nikita/Desktop/AES+LCD/SubBytes.vhd             ;         ;
+; AddRoundKey.vhd                  ; yes             ; User VHDL File  ; C:/Users/Nikita/Desktop/AES+LCD/AddRoundKey.vhd          ;         ;
+; AES.vhd                          ; yes             ; User VHDL File  ; C:/Users/Nikita/Desktop/AES+LCD/AES.vhd                  ;         ;
+; EncryptAndDisplay.vhd            ; yes             ; User VHDL File  ; C:/Users/Nikita/Desktop/AES+LCD/EncryptAndDisplay.vhd    ;         ;
+; frequency_divider.vhd            ; yes             ; User VHDL File  ; C:/Users/Nikita/Desktop/AES+LCD/frequency_divider.vhd    ;         ;
++----------------------------------+-----------------+-----------------+----------------------------------------------------------+---------+
+
+
++------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                  ;
++---------------------------------------------+--------------------------------+
+; Resource                                    ; Usage                          ;
++---------------------------------------------+--------------------------------+
+; Estimated Total logic elements              ; 6,385                          ;
+;                                             ;                                ;
+; Total combinational functions               ; 5732                           ;
+; Logic element usage by number of LUT inputs ;                                ;
+;     -- 4 input functions                    ; 4983                           ;
+;     -- 3 input functions                    ; 455                            ;
+;     -- <=2 input functions                  ; 294                            ;
+;                                             ;                                ;
+; Logic elements by mode                      ;                                ;
+;     -- normal mode                          ; 5689                           ;
+;     -- arithmetic mode                      ; 43                             ;
+;                                             ;                                ;
+; Total registers                             ; 1127                           ;
+;     -- Dedicated logic registers            ; 1127                           ;
+;     -- I/O registers                        ; 0                              ;
+;                                             ;                                ;
+; I/O pins                                    ; 19                             ;
+; Embedded Multiplier 9-bit elements          ; 0                              ;
+; Maximum fan-out node                        ; frequency_divider:DIV|temporal ;
+; Maximum fan-out                             ; 1054                           ;
+; Total fan-out                               ; 25322                          ;
+; Average fan-out                             ; 3.68                           ;
++---------------------------------------------+--------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                  ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------+--------------+
+; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                          ; Library Name ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------+--------------+
+; |EncryptAndDisplay         ; 5732 (0)          ; 1127 (0)     ; 0           ; 0            ; 0       ; 0         ; 19   ; 0            ; |EncryptAndDisplay                           ; work         ;
+;    |AES:ENC|               ; 4986 (4645)       ; 1053 (1053)  ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |EncryptAndDisplay|AES:ENC                   ; work         ;
+;       |AddRoundKey:add_g|  ; 128 (128)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |EncryptAndDisplay|AES:ENC|AddRoundKey:add_g ; work         ;
+;       |MixColumns:mix_g|   ; 213 (213)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |EncryptAndDisplay|AES:ENC|MixColumns:mix_g  ; work         ;
+;    |LCD_DISPLAY_nty:LCD|   ; 721 (721)         ; 59 (59)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |EncryptAndDisplay|LCD_DISPLAY_nty:LCD       ; work         ;
+;    |frequency_divider:DIV| ; 25 (25)           ; 15 (15)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |EncryptAndDisplay|frequency_divider:DIV     ; work         ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |EncryptAndDisplay|LCD_DISPLAY_nty:LCD|next_command                                                                                                                                                                                                                                                                                      ;
++----------------------------+----------------------------+--------------------------+---------------------+-------------------+---------------------+-------------------------+--------------------------+--------------------+---------------------------+-----------------------+-------------------------+-----------------------+---------------------+
+; Name                       ; next_command.display_clear ; next_command.display_off ; next_command.reset3 ; next_command.hold ; next_command.reset1 ; next_command.drop_lcd_e ; next_command.return_home ; next_command.line2 ; next_command.print_string ; next_command.mode_set ; next_command.display_on ; next_command.func_set ; next_command.reset2 ;
++----------------------------+----------------------------+--------------------------+---------------------+-------------------+---------------------+-------------------------+--------------------------+--------------------+---------------------------+-----------------------+-------------------------+-----------------------+---------------------+
+; next_command.reset2        ; 0                          ; 0                        ; 0                   ; 0                 ; 0                   ; 0                       ; 0                        ; 0                  ; 0                         ; 0                     ; 0                       ; 0                     ; 0                   ;
+; next_command.func_set      ; 0                          ; 0                        ; 0                   ; 0                 ; 0                   ; 0                       ; 0                        ; 0                  ; 0                         ; 0                     ; 0                       ; 1                     ; 1                   ;
+; next_command.display_on    ; 0                          ; 0                        ; 0                   ; 0                 ; 0                   ; 0                       ; 0                        ; 0                  ; 0                         ; 0                     ; 1                       ; 0                     ; 1                   ;
+; next_command.mode_set      ; 0                          ; 0                        ; 0                   ; 0                 ; 0                   ; 0                       ; 0                        ; 0                  ; 0                         ; 1                     ; 0                       ; 0                     ; 1                   ;
+; next_command.print_string  ; 0                          ; 0                        ; 0                   ; 0                 ; 0                   ; 0                       ; 0                        ; 0                  ; 1                         ; 0                     ; 0                       ; 0                     ; 1                   ;
+; next_command.line2         ; 0                          ; 0                        ; 0                   ; 0                 ; 0                   ; 0                       ; 0                        ; 1                  ; 0                         ; 0                     ; 0                       ; 0                     ; 1                   ;
+; next_command.return_home   ; 0                          ; 0                        ; 0                   ; 0                 ; 0                   ; 0                       ; 1                        ; 0                  ; 0                         ; 0                     ; 0                       ; 0                     ; 1                   ;
+; next_command.drop_lcd_e    ; 0                          ; 0                        ; 0                   ; 0                 ; 0                   ; 1                       ; 0                        ; 0                  ; 0                         ; 0                     ; 0                       ; 0                     ; 1                   ;
+; next_command.reset1        ; 0                          ; 0                        ; 0                   ; 0                 ; 1                   ; 0                       ; 0                        ; 0                  ; 0                         ; 0                     ; 0                       ; 0                     ; 1                   ;
+; next_command.hold          ; 0                          ; 0                        ; 0                   ; 1                 ; 0                   ; 0                       ; 0                        ; 0                  ; 0                         ; 0                     ; 0                       ; 0                     ; 1                   ;
+; next_command.reset3        ; 0                          ; 0                        ; 1                   ; 0                 ; 0                   ; 0                       ; 0                        ; 0                  ; 0                         ; 0                     ; 0                       ; 0                     ; 1                   ;
+; next_command.display_off   ; 0                          ; 1                        ; 0                   ; 0                 ; 0                   ; 0                       ; 0                        ; 0                  ; 0                         ; 0                     ; 0                       ; 0                     ; 1                   ;
+; next_command.display_clear ; 1                          ; 0                        ; 0                   ; 0                 ; 0                   ; 0                       ; 0                        ; 0                  ; 0                         ; 0                     ; 0                       ; 0                     ; 1                   ;
++----------------------------+----------------------------+--------------------------+---------------------+-------------------+---------------------+-------------------------+--------------------------+--------------------+---------------------------+-----------------------+-------------------------+-----------------------+---------------------+
+
+
+Encoding Type:  One-Hot
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |EncryptAndDisplay|LCD_DISPLAY_nty:LCD|state                                                                                                                                                                                           ;
++---------------------+---------------------+-------------------+--------------+--------------+------------+------------------+-------------------+-------------+--------------------+----------------+------------------+----------------+--------------+
+; Name                ; state.display_clear ; state.display_off ; state.reset3 ; state.reset2 ; state.hold ; state.drop_lcd_e ; state.return_home ; state.line2 ; state.print_string ; state.mode_set ; state.display_on ; state.func_set ; state.reset1 ;
++---------------------+---------------------+-------------------+--------------+--------------+------------+------------------+-------------------+-------------+--------------------+----------------+------------------+----------------+--------------+
+; state.reset1        ; 0                   ; 0                 ; 0            ; 0            ; 0          ; 0                ; 0                 ; 0           ; 0                  ; 0              ; 0                ; 0              ; 0            ;
+; state.func_set      ; 0                   ; 0                 ; 0            ; 0            ; 0          ; 0                ; 0                 ; 0           ; 0                  ; 0              ; 0                ; 1              ; 1            ;
+; state.display_on    ; 0                   ; 0                 ; 0            ; 0            ; 0          ; 0                ; 0                 ; 0           ; 0                  ; 0              ; 1                ; 0              ; 1            ;
+; state.mode_set      ; 0                   ; 0                 ; 0            ; 0            ; 0          ; 0                ; 0                 ; 0           ; 0                  ; 1              ; 0                ; 0              ; 1            ;
+; state.print_string  ; 0                   ; 0                 ; 0            ; 0            ; 0          ; 0                ; 0                 ; 0           ; 1                  ; 0              ; 0                ; 0              ; 1            ;
+; state.line2         ; 0                   ; 0                 ; 0            ; 0            ; 0          ; 0                ; 0                 ; 1           ; 0                  ; 0              ; 0                ; 0              ; 1            ;
+; state.return_home   ; 0                   ; 0                 ; 0            ; 0            ; 0          ; 0                ; 1                 ; 0           ; 0                  ; 0              ; 0                ; 0              ; 1            ;
+; state.drop_lcd_e    ; 0                   ; 0                 ; 0            ; 0            ; 0          ; 1                ; 0                 ; 0           ; 0                  ; 0              ; 0                ; 0              ; 1            ;
+; state.hold          ; 0                   ; 0                 ; 0            ; 0            ; 1          ; 0                ; 0                 ; 0           ; 0                  ; 0              ; 0                ; 0              ; 1            ;
+; state.reset2        ; 0                   ; 0                 ; 0            ; 1            ; 0          ; 0                ; 0                 ; 0           ; 0                  ; 0              ; 0                ; 0              ; 1            ;
+; state.reset3        ; 0                   ; 0                 ; 1            ; 0            ; 0          ; 0                ; 0                 ; 0           ; 0                  ; 0              ; 0                ; 0              ; 1            ;
+; state.display_off   ; 0                   ; 1                 ; 0            ; 0            ; 0          ; 0                ; 0                 ; 0           ; 0                  ; 0              ; 0                ; 0              ; 1            ;
+; state.display_clear ; 1                   ; 0                 ; 0            ; 0            ; 0          ; 0                ; 0                 ; 0           ; 0                  ; 0              ; 0                ; 0              ; 1            ;
++---------------------+---------------------+-------------------+--------------+--------------+------------+------------------+-------------------+-------------+--------------------+----------------+------------------+----------------+--------------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------------+
+; State Machine - |EncryptAndDisplay|AES:ENC|current_state                                          ;
++-------------------+-------------------+-------------------+-------------------+-------------------+
+; Name              ; current_state.FIN ; current_state.MID ; current_state.STA ; current_state.IDL ;
++-------------------+-------------------+-------------------+-------------------+-------------------+
+; current_state.IDL ; 0                 ; 0                 ; 0                 ; 0                 ;
+; current_state.STA ; 0                 ; 0                 ; 1                 ; 1                 ;
+; current_state.MID ; 0                 ; 1                 ; 0                 ; 1                 ;
+; current_state.FIN ; 1                 ; 0                 ; 0                 ; 1                 ;
++-------------------+-------------------+-------------------+-------------------+-------------------+
+
+
+Encoding Type:  One-Hot
++--------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |EncryptAndDisplay|AES:ENC|current_action                                                                                        ;
++--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+
+; Name               ; current_action.NIL ; current_action.NXT ; current_action.ADD ; current_action.MIX ; current_action.SFT ; current_action.SUB ;
++--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+
+; current_action.SUB ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ;
+; current_action.SFT ; 0                  ; 0                  ; 0                  ; 0                  ; 1                  ; 1                  ;
+; current_action.MIX ; 0                  ; 0                  ; 0                  ; 1                  ; 0                  ; 1                  ;
+; current_action.ADD ; 0                  ; 0                  ; 1                  ; 0                  ; 0                  ; 1                  ;
+; current_action.NXT ; 0                  ; 1                  ; 0                  ; 0                  ; 0                  ; 1                  ;
+; current_action.NIL ; 1                  ; 0                  ; 0                  ; 0                  ; 0                  ; 1                  ;
++--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |EncryptAndDisplay|AES:ENC|next_action                                                                      ;
++-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+
+; Name            ; next_action.NIL ; next_action.NXT ; next_action.ADD ; next_action.MIX ; next_action.SFT ; next_action.SUB ;
++-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+
+; next_action.SUB ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ;
+; next_action.SFT ; 0               ; 0               ; 0               ; 0               ; 1               ; 1               ;
+; next_action.MIX ; 0               ; 0               ; 0               ; 1               ; 0               ; 1               ;
+; next_action.ADD ; 0               ; 0               ; 1               ; 0               ; 0               ; 1               ;
+; next_action.NXT ; 0               ; 1               ; 0               ; 0               ; 0               ; 1               ;
+; next_action.NIL ; 1               ; 0               ; 0               ; 0               ; 0               ; 1               ;
++-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------------+
+; State Machine - |EncryptAndDisplay|AES:ENC|next_state                              ;
++----------------+----------------+----------------+----------------+----------------+
+; Name           ; next_state.FIN ; next_state.MID ; next_state.STA ; next_state.IDL ;
++----------------+----------------+----------------+----------------+----------------+
+; next_state.IDL ; 0              ; 0              ; 0              ; 0              ;
+; next_state.STA ; 0              ; 0              ; 1              ; 1              ;
+; next_state.MID ; 0              ; 1              ; 0              ; 1              ;
+; next_state.FIN ; 1              ; 0              ; 0              ; 1              ;
++----------------+----------------+----------------+----------------+----------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                        ;
++------------------------------------------------------+----------------------------+------------------------+
+; Latch Name                                           ; Latch Enable Signal        ; Free of Timing Hazards ;
++------------------------------------------------------+----------------------------+------------------------+
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[12][0]     ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[6][0]      ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[4][0]      ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[14][0]     ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[3][0]      ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[9][0]      ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[1][0]      ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[11][0]     ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[8][0]      ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[2][0]      ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[0][0]      ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[10][0]     ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[7][0]      ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[13][0]     ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[5][0]      ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[15][0]     ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[28][0]     ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[25][0]     ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[24][0]     ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[29][0]     ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[19][0]     ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[22][0]     ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[18][0]     ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[23][0]     ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[17][0]     ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[20][0]     ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[16][0]     ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[21][0]     ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[30][0]     ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[27][0]     ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[26][0]     ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[31][0]     ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[9][2]      ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[3][2]      ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[1][2]      ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[11][2]     ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[6][2]      ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[12][2]     ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[4][2]      ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[14][2]     ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[2][2]      ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[8][2]      ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[0][2]      ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[10][2]     ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[13][2]     ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[7][2]      ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[5][2]      ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[15][2]     ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[22][2]     ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[19][2]     ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[18][2]     ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[23][2]     ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[25][2]     ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[28][2]     ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[24][2]     ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[29][2]     ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[20][2]     ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[17][2]     ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[16][2]     ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[21][2]     ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[27][2]     ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[30][2]     ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[26][2]     ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[31][2]     ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[12][1]     ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[6][1]      ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[4][1]      ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[14][1]     ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[3][1]      ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[9][1]      ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[1][1]      ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[11][1]     ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[8][1]      ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[2][1]      ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[0][1]      ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[10][1]     ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[7][1]      ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[13][1]     ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[5][1]      ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[15][1]     ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[28][1]     ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[25][1]     ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[24][1]     ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[29][1]     ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[19][1]     ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[22][1]     ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[18][1]     ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[23][1]     ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[17][1]     ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[20][1]     ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[16][1]     ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[21][1]     ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[30][1]     ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[27][1]     ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[26][1]     ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[31][1]     ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[22][3]     ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[21][3]     ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[20][3]     ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; LCD_DISPLAY_nty:LCD|lcd_display_string_01[23][3]     ; LCD_DISPLAY_nty:LCD|Mux395 ; yes                    ;
+; Number of user-specified and inferred latches = 224  ;                            ;                        ;
++------------------------------------------------------+----------------------------+------------------------+
+Table restricted to first 100 entries. Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++-------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                    ;
++---------------------------------------------+---------------------------------------------------------+
+; Register name                               ; Reason for Removal                                      ;
++---------------------------------------------+---------------------------------------------------------+
+; LCD_DISPLAY_nty:LCD|lcd_on                  ; Stuck at VCC due to stuck port data_in                  ;
+; LCD_DISPLAY_nty:LCD|lcd_rw_int              ; Stuck at GND due to stuck port data_in                  ;
+; LCD_DISPLAY_nty:LCD|lcd_blon                ; Stuck at VCC due to stuck port data_in                  ;
+; LCD_DISPLAY_nty:LCD|next_command.hold       ; Merged with LCD_DISPLAY_nty:LCD|next_command.drop_lcd_e ;
+; LCD_DISPLAY_nty:LCD|next_command.reset1     ; Merged with LCD_DISPLAY_nty:LCD|next_command.drop_lcd_e ;
+; LCD_DISPLAY_nty:LCD|next_command.drop_lcd_e ; Stuck at GND due to stuck port data_in                  ;
+; Total Number of Removed Registers = 6       ;                                                         ;
++---------------------------------------------+---------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 1127  ;
+; Number of registers using Synchronous Clear  ; 44    ;
+; Number of registers using Synchronous Load   ; 27    ;
+; Number of registers using Asynchronous Clear ; 33    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 1072  ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; LCD_DISPLAY_nty:LCD|lcd_e              ; 2       ;
+; LCD_DISPLAY_nty:LCD|data_bus_value[3]  ; 2       ;
+; LCD_DISPLAY_nty:LCD|data_bus_value[4]  ; 1       ;
+; LCD_DISPLAY_nty:LCD|data_bus_value[5]  ; 1       ;
+; Total number of inverted registers = 4 ;         ;
++----------------------------------------+---------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------+
+; 3:1                ; 128 bits  ; 256 LEs       ; 0 LEs                ; 256 LEs                ; Yes        ; |EncryptAndDisplay|AES:ENC|sub_in[7][3]                    ;
+; 3:1                ; 128 bits  ; 256 LEs       ; 0 LEs                ; 256 LEs                ; Yes        ; |EncryptAndDisplay|AES:ENC|shift_in[8][1]                  ;
+; 3:1                ; 256 bits  ; 512 LEs       ; 0 LEs                ; 512 LEs                ; Yes        ; |EncryptAndDisplay|AES:ENC|addkey_in[14][4]                ;
+; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |EncryptAndDisplay|LCD_DISPLAY_nty:LCD|clk_count_400hz[13] ;
+; 4:1                ; 128 bits  ; 256 LEs       ; 128 LEs              ; 128 LEs                ; Yes        ; |EncryptAndDisplay|AES:ENC|key_mat[15][0]                  ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |EncryptAndDisplay|AES:ENC|rounds[6]                       ;
+; 25:1               ; 8 bits    ; 128 LEs       ; 104 LEs              ; 24 LEs                 ; Yes        ; |EncryptAndDisplay|AES:ENC|state_mat[0][3]                 ;
+; 25:1               ; 8 bits    ; 128 LEs       ; 96 LEs               ; 32 LEs                 ; Yes        ; |EncryptAndDisplay|AES:ENC|state_mat[1][4]                 ;
+; 25:1               ; 8 bits    ; 128 LEs       ; 96 LEs               ; 32 LEs                 ; Yes        ; |EncryptAndDisplay|AES:ENC|state_mat[2][5]                 ;
+; 25:1               ; 8 bits    ; 128 LEs       ; 96 LEs               ; 32 LEs                 ; Yes        ; |EncryptAndDisplay|AES:ENC|state_mat[3][3]                 ;
+; 25:1               ; 8 bits    ; 128 LEs       ; 96 LEs               ; 32 LEs                 ; Yes        ; |EncryptAndDisplay|AES:ENC|state_mat[4][6]                 ;
+; 25:1               ; 8 bits    ; 128 LEs       ; 96 LEs               ; 32 LEs                 ; Yes        ; |EncryptAndDisplay|AES:ENC|state_mat[5][5]                 ;
+; 25:1               ; 8 bits    ; 128 LEs       ; 96 LEs               ; 32 LEs                 ; Yes        ; |EncryptAndDisplay|AES:ENC|state_mat[6][2]                 ;
+; 25:1               ; 8 bits    ; 128 LEs       ; 96 LEs               ; 32 LEs                 ; Yes        ; |EncryptAndDisplay|AES:ENC|state_mat[7][4]                 ;
+; 25:1               ; 8 bits    ; 128 LEs       ; 96 LEs               ; 32 LEs                 ; Yes        ; |EncryptAndDisplay|AES:ENC|state_mat[8][5]                 ;
+; 25:1               ; 8 bits    ; 128 LEs       ; 96 LEs               ; 32 LEs                 ; Yes        ; |EncryptAndDisplay|AES:ENC|state_mat[9][5]                 ;
+; 25:1               ; 8 bits    ; 128 LEs       ; 96 LEs               ; 32 LEs                 ; Yes        ; |EncryptAndDisplay|AES:ENC|state_mat[10][7]                ;
+; 25:1               ; 8 bits    ; 128 LEs       ; 96 LEs               ; 32 LEs                 ; Yes        ; |EncryptAndDisplay|AES:ENC|state_mat[11][3]                ;
+; 25:1               ; 8 bits    ; 128 LEs       ; 96 LEs               ; 32 LEs                 ; Yes        ; |EncryptAndDisplay|AES:ENC|state_mat[12][4]                ;
+; 25:1               ; 8 bits    ; 128 LEs       ; 96 LEs               ; 32 LEs                 ; Yes        ; |EncryptAndDisplay|AES:ENC|state_mat[13][3]                ;
+; 25:1               ; 8 bits    ; 128 LEs       ; 96 LEs               ; 32 LEs                 ; Yes        ; |EncryptAndDisplay|AES:ENC|state_mat[14][7]                ;
+; 25:1               ; 8 bits    ; 128 LEs       ; 96 LEs               ; 32 LEs                 ; Yes        ; |EncryptAndDisplay|AES:ENC|state_mat[15][2]                ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |EncryptAndDisplay|LCD_DISPLAY_nty:LCD|data_bus_value[4]   ;
+; 3:1                ; 11 bits   ; 22 LEs        ; 22 LEs               ; 0 LEs                  ; No         ; |EncryptAndDisplay|LCD_DISPLAY_nty:LCD|state               ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; No         ; |EncryptAndDisplay|LCD_DISPLAY_nty:LCD|next_command        ;
+; 1:1                ; 192 bits  ; 0 LEs         ; 0 LEs                ; 0 LEs                  ; No         ; |EncryptAndDisplay|LCD_DISPLAY_nty:LCD|Mux503              ;
+; 16:1               ; 8 bits    ; 80 LEs        ; 80 LEs               ; 0 LEs                  ; No         ; |EncryptAndDisplay|AES:ENC|Mux537                          ;
+; 16:1               ; 8 bits    ; 80 LEs        ; 80 LEs               ; 0 LEs                  ; No         ; |EncryptAndDisplay|AES:ENC|Mux132                          ;
+; 16:1               ; 8 bits    ; 80 LEs        ; 80 LEs               ; 0 LEs                  ; No         ; |EncryptAndDisplay|AES:ENC|Mux269                          ;
+; 16:1               ; 8 bits    ; 80 LEs        ; 80 LEs               ; 0 LEs                  ; No         ; |EncryptAndDisplay|AES:ENC|Mux400                          ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; No         ; |EncryptAndDisplay|AES:ENC|Selector21                      ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |EncryptAndDisplay|AES:ENC|Selector24                      ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |EncryptAndDisplay|AES:ENC|Selector25                      ;
+; 47:1               ; 2 bits    ; 62 LEs        ; 48 LEs               ; 14 LEs                 ; No         ; |EncryptAndDisplay|LCD_DISPLAY_nty:LCD|Mux396              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------+
+
+
++------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: LCD_DISPLAY_nty:LCD ;
++----------------+-------+-----------------------------------------+
+; Parameter Name ; Value ; Type                                    ;
++----------------+-------+-----------------------------------------+
+; num_hex_digits ; 2     ; Signed Integer                          ;
++----------------+-------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------+
+; Port Connectivity Checks: "LCD_DISPLAY_nty:LCD"      ;
++--------------------+-------+----------+--------------+
+; Port               ; Type  ; Severity ; Details      ;
++--------------------+-------+----------+--------------+
+; hex_display_data_0 ; Input ; Info     ; Stuck at GND ;
+; hex_display_data_1 ; Input ; Info     ; Stuck at GND ;
+; hex_display_data_2 ; Input ; Info     ; Stuck at GND ;
+; hex_display_data_3 ; Input ; Info     ; Stuck at GND ;
+; hex_display_data_4 ; Input ; Info     ; Stuck at GND ;
+; hex_display_data_5 ; Input ; Info     ; Stuck at GND ;
+; hex_display_data_6 ; Input ; Info     ; Stuck at GND ;
+; hex_display_data_7 ; Input ; Info     ; Stuck at GND ;
++--------------------+-------+----------+--------------+
+
+
++------------------------------------------------------+
+; Port Connectivity Checks: "AES:ENC"                  ;
++--------------------+-------+----------+--------------+
+; Port               ; Type  ; Severity ; Details      ;
++--------------------+-------+----------+--------------+
+; plain_in[0]        ; Input ; Info     ; Stuck at GND ;
+; plain_in[1][7..5]  ; Input ; Info     ; Stuck at GND ;
+; plain_in[1][3..1]  ; Input ; Info     ; Stuck at GND ;
+; plain_in[1][4]     ; Input ; Info     ; Stuck at VCC ;
+; plain_in[1][0]     ; Input ; Info     ; Stuck at VCC ;
+; plain_in[2][7..6]  ; Input ; Info     ; Stuck at GND ;
+; plain_in[2][4..2]  ; Input ; Info     ; Stuck at GND ;
+; plain_in[2][5]     ; Input ; Info     ; Stuck at VCC ;
+; plain_in[2][1]     ; Input ; Info     ; Stuck at VCC ;
+; plain_in[2][0]     ; Input ; Info     ; Stuck at GND ;
+; plain_in[3][5..4]  ; Input ; Info     ; Stuck at VCC ;
+; plain_in[3][1..0]  ; Input ; Info     ; Stuck at VCC ;
+; plain_in[3][7..6]  ; Input ; Info     ; Stuck at GND ;
+; plain_in[3][3..2]  ; Input ; Info     ; Stuck at GND ;
+; plain_in[4][5..3]  ; Input ; Info     ; Stuck at GND ;
+; plain_in[4][1..0]  ; Input ; Info     ; Stuck at GND ;
+; plain_in[4][7]     ; Input ; Info     ; Stuck at GND ;
+; plain_in[4][6]     ; Input ; Info     ; Stuck at VCC ;
+; plain_in[4][2]     ; Input ; Info     ; Stuck at VCC ;
+; plain_in[5][7]     ; Input ; Info     ; Stuck at GND ;
+; plain_in[5][6]     ; Input ; Info     ; Stuck at VCC ;
+; plain_in[5][5]     ; Input ; Info     ; Stuck at GND ;
+; plain_in[5][4]     ; Input ; Info     ; Stuck at VCC ;
+; plain_in[5][3]     ; Input ; Info     ; Stuck at GND ;
+; plain_in[5][2]     ; Input ; Info     ; Stuck at VCC ;
+; plain_in[5][1]     ; Input ; Info     ; Stuck at GND ;
+; plain_in[5][0]     ; Input ; Info     ; Stuck at VCC ;
+; plain_in[6][6..5]  ; Input ; Info     ; Stuck at VCC ;
+; plain_in[6][2..1]  ; Input ; Info     ; Stuck at VCC ;
+; plain_in[6][4..3]  ; Input ; Info     ; Stuck at GND ;
+; plain_in[6][7]     ; Input ; Info     ; Stuck at GND ;
+; plain_in[6][0]     ; Input ; Info     ; Stuck at GND ;
+; plain_in[7][6..4]  ; Input ; Info     ; Stuck at VCC ;
+; plain_in[7][2..0]  ; Input ; Info     ; Stuck at VCC ;
+; plain_in[7][7]     ; Input ; Info     ; Stuck at GND ;
+; plain_in[7][3]     ; Input ; Info     ; Stuck at GND ;
+; plain_in[8][6..4]  ; Input ; Info     ; Stuck at GND ;
+; plain_in[8][2..0]  ; Input ; Info     ; Stuck at GND ;
+; plain_in[8][7]     ; Input ; Info     ; Stuck at VCC ;
+; plain_in[8][3]     ; Input ; Info     ; Stuck at VCC ;
+; plain_in[9][4..3]  ; Input ; Info     ; Stuck at VCC ;
+; plain_in[9][6..5]  ; Input ; Info     ; Stuck at GND ;
+; plain_in[9][2..1]  ; Input ; Info     ; Stuck at GND ;
+; plain_in[9][7]     ; Input ; Info     ; Stuck at VCC ;
+; plain_in[9][0]     ; Input ; Info     ; Stuck at VCC ;
+; plain_in[10][7]    ; Input ; Info     ; Stuck at VCC ;
+; plain_in[10][6]    ; Input ; Info     ; Stuck at GND ;
+; plain_in[10][5]    ; Input ; Info     ; Stuck at VCC ;
+; plain_in[10][4]    ; Input ; Info     ; Stuck at GND ;
+; plain_in[10][3]    ; Input ; Info     ; Stuck at VCC ;
+; plain_in[10][2]    ; Input ; Info     ; Stuck at GND ;
+; plain_in[10][1]    ; Input ; Info     ; Stuck at VCC ;
+; plain_in[10][0]    ; Input ; Info     ; Stuck at GND ;
+; plain_in[11][5..3] ; Input ; Info     ; Stuck at VCC ;
+; plain_in[11][1..0] ; Input ; Info     ; Stuck at VCC ;
+; plain_in[11][7]    ; Input ; Info     ; Stuck at VCC ;
+; plain_in[11][6]    ; Input ; Info     ; Stuck at GND ;
+; plain_in[11][2]    ; Input ; Info     ; Stuck at GND ;
+; plain_in[12][7..6] ; Input ; Info     ; Stuck at VCC ;
+; plain_in[12][3..2] ; Input ; Info     ; Stuck at VCC ;
+; plain_in[12][5..4] ; Input ; Info     ; Stuck at GND ;
+; plain_in[12][1..0] ; Input ; Info     ; Stuck at GND ;
+; plain_in[13][7..6] ; Input ; Info     ; Stuck at VCC ;
+; plain_in[13][4..2] ; Input ; Info     ; Stuck at VCC ;
+; plain_in[13][5]    ; Input ; Info     ; Stuck at GND ;
+; plain_in[13][1]    ; Input ; Info     ; Stuck at GND ;
+; plain_in[13][0]    ; Input ; Info     ; Stuck at VCC ;
+; plain_in[14][7..5] ; Input ; Info     ; Stuck at VCC ;
+; plain_in[14][3..1] ; Input ; Info     ; Stuck at VCC ;
+; plain_in[14][4]    ; Input ; Info     ; Stuck at GND ;
+; plain_in[14][0]    ; Input ; Info     ; Stuck at GND ;
+; plain_in[15]       ; Input ; Info     ; Stuck at VCC ;
+; key_in[0]          ; Input ; Info     ; Stuck at GND ;
+; key_in[1][7..5]    ; Input ; Info     ; Stuck at GND ;
+; key_in[1][3..1]    ; Input ; Info     ; Stuck at GND ;
+; key_in[1][4]       ; Input ; Info     ; Stuck at VCC ;
+; key_in[1][0]       ; Input ; Info     ; Stuck at VCC ;
+; key_in[2][7..6]    ; Input ; Info     ; Stuck at GND ;
+; key_in[2][4..2]    ; Input ; Info     ; Stuck at GND ;
+; key_in[2][5]       ; Input ; Info     ; Stuck at VCC ;
+; key_in[2][1]       ; Input ; Info     ; Stuck at VCC ;
+; key_in[2][0]       ; Input ; Info     ; Stuck at GND ;
+; key_in[3][5..4]    ; Input ; Info     ; Stuck at VCC ;
+; key_in[3][1..0]    ; Input ; Info     ; Stuck at VCC ;
+; key_in[3][7..6]    ; Input ; Info     ; Stuck at GND ;
+; key_in[3][3..2]    ; Input ; Info     ; Stuck at GND ;
+; key_in[4][5..3]    ; Input ; Info     ; Stuck at GND ;
+; key_in[4][1..0]    ; Input ; Info     ; Stuck at GND ;
+; key_in[4][7]       ; Input ; Info     ; Stuck at GND ;
+; key_in[4][6]       ; Input ; Info     ; Stuck at VCC ;
+; key_in[4][2]       ; Input ; Info     ; Stuck at VCC ;
+; key_in[5][7]       ; Input ; Info     ; Stuck at GND ;
+; key_in[5][6]       ; Input ; Info     ; Stuck at VCC ;
+; key_in[5][5]       ; Input ; Info     ; Stuck at GND ;
+; key_in[5][4]       ; Input ; Info     ; Stuck at VCC ;
+; key_in[5][3]       ; Input ; Info     ; Stuck at GND ;
+; key_in[5][2]       ; Input ; Info     ; Stuck at VCC ;
+; key_in[5][1]       ; Input ; Info     ; Stuck at GND ;
+; key_in[5][0]       ; Input ; Info     ; Stuck at VCC ;
+; key_in[6][6..5]    ; Input ; Info     ; Stuck at VCC ;
+; key_in[6][2..1]    ; Input ; Info     ; Stuck at VCC ;
+; key_in[6][4..3]    ; Input ; Info     ; Stuck at GND ;
+; key_in[6][7]       ; Input ; Info     ; Stuck at GND ;
+; key_in[6][0]       ; Input ; Info     ; Stuck at GND ;
+; key_in[7][6..4]    ; Input ; Info     ; Stuck at VCC ;
+; key_in[7][2..0]    ; Input ; Info     ; Stuck at VCC ;
+; key_in[7][7]       ; Input ; Info     ; Stuck at GND ;
+; key_in[7][3]       ; Input ; Info     ; Stuck at GND ;
+; key_in[8][6..4]    ; Input ; Info     ; Stuck at GND ;
+; key_in[8][2..0]    ; Input ; Info     ; Stuck at GND ;
+; key_in[8][7]       ; Input ; Info     ; Stuck at VCC ;
+; key_in[8][3]       ; Input ; Info     ; Stuck at VCC ;
+; key_in[9][4..3]    ; Input ; Info     ; Stuck at VCC ;
+; key_in[9][6..5]    ; Input ; Info     ; Stuck at GND ;
+; key_in[9][2..1]    ; Input ; Info     ; Stuck at GND ;
+; key_in[9][7]       ; Input ; Info     ; Stuck at VCC ;
+; key_in[9][0]       ; Input ; Info     ; Stuck at VCC ;
+; key_in[10][7]      ; Input ; Info     ; Stuck at VCC ;
+; key_in[10][6]      ; Input ; Info     ; Stuck at GND ;
+; key_in[10][5]      ; Input ; Info     ; Stuck at VCC ;
+; key_in[10][4]      ; Input ; Info     ; Stuck at GND ;
+; key_in[10][3]      ; Input ; Info     ; Stuck at VCC ;
+; key_in[10][2]      ; Input ; Info     ; Stuck at GND ;
+; key_in[10][1]      ; Input ; Info     ; Stuck at VCC ;
+; key_in[10][0]      ; Input ; Info     ; Stuck at GND ;
+; key_in[11][5..3]   ; Input ; Info     ; Stuck at VCC ;
+; key_in[11][1..0]   ; Input ; Info     ; Stuck at VCC ;
+; key_in[11][7]      ; Input ; Info     ; Stuck at VCC ;
+; key_in[11][6]      ; Input ; Info     ; Stuck at GND ;
+; key_in[11][2]      ; Input ; Info     ; Stuck at GND ;
+; key_in[12][7..6]   ; Input ; Info     ; Stuck at VCC ;
+; key_in[12][3..2]   ; Input ; Info     ; Stuck at VCC ;
+; key_in[12][5..4]   ; Input ; Info     ; Stuck at GND ;
+; key_in[12][1..0]   ; Input ; Info     ; Stuck at GND ;
+; key_in[13][7..6]   ; Input ; Info     ; Stuck at VCC ;
+; key_in[13][4..2]   ; Input ; Info     ; Stuck at VCC ;
+; key_in[13][5]      ; Input ; Info     ; Stuck at GND ;
+; key_in[13][1]      ; Input ; Info     ; Stuck at GND ;
+; key_in[13][0]      ; Input ; Info     ; Stuck at VCC ;
+; key_in[14][7..5]   ; Input ; Info     ; Stuck at VCC ;
+; key_in[14][3..1]   ; Input ; Info     ; Stuck at VCC ;
+; key_in[14][4]      ; Input ; Info     ; Stuck at GND ;
+; key_in[14][0]      ; Input ; Info     ; Stuck at GND ;
+; key_in[15]         ; Input ; Info     ; Stuck at VCC ;
++--------------------+-------+----------+--------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:50     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+    Info: Processing started: Sat Apr 11 02:45:22 2020
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off EncryptAndDisplay -c EncryptAndDisplay
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (12021): Found 2 design units, including 0 entities, in source file aes_types.vhd
+    Info (12022): Found design unit 1: AES_TYPES
+    Info (12022): Found design unit 2: AES_TYPES-body
+Info (12021): Found 2 design units, including 1 entities, in source file de2_lcd_display_arch.vhd
+    Info (12022): Found design unit 1: LCD_DISPLAY_nty-LCD_DISPLAY_arch
+    Info (12023): Found entity 1: LCD_DISPLAY_nty
+Info (12021): Found 2 design units, including 1 entities, in source file mixcolumns.vhd
+    Info (12022): Found design unit 1: MixColumns-dataflow
+    Info (12023): Found entity 1: MixColumns
+Info (12021): Found 2 design units, including 1 entities, in source file shiftrows.vhd
+    Info (12022): Found design unit 1: ShiftRows-dataflow
+    Info (12023): Found entity 1: ShiftRows
+Info (12021): Found 2 design units, including 1 entities, in source file subbytes.vhd
+    Info (12022): Found design unit 1: SubBytes-dataflow
+    Info (12023): Found entity 1: SubBytes
+Info (12021): Found 2 design units, including 1 entities, in source file addroundkey.vhd
+    Info (12022): Found design unit 1: AddRoundKey-dataflow
+    Info (12023): Found entity 1: AddRoundKey
+Info (12021): Found 2 design units, including 1 entities, in source file aes.vhd
+    Info (12022): Found design unit 1: AES-behaviour
+    Info (12023): Found entity 1: AES
+Info (12021): Found 2 design units, including 1 entities, in source file encryptanddisplay.vhd
+    Info (12022): Found design unit 1: EncryptAndDisplay-structural
+    Info (12023): Found entity 1: EncryptAndDisplay
+Info (12021): Found 2 design units, including 1 entities, in source file output_files/encryptanddisplay.vhd
+    Info (12022): Found design unit 1: tb_EncryptAndDisplay-testbench
+    Info (12023): Found entity 1: tb_EncryptAndDisplay
+Info (12021): Found 2 design units, including 1 entities, in source file frequency_divider.vhd
+    Info (12022): Found design unit 1: frequency_divider-Behavioral
+    Info (12023): Found entity 1: frequency_divider
+Info (12127): Elaborating entity "EncryptAndDisplay" for the top level hierarchy
+Info (12128): Elaborating entity "frequency_divider" for hierarchy "frequency_divider:DIV"
+Info (12128): Elaborating entity "AES" for hierarchy "AES:ENC"
+Info (12128): Elaborating entity "SubBytes" for hierarchy "AES:ENC|SubBytes:sub_g"
+Info (12128): Elaborating entity "ShiftRows" for hierarchy "AES:ENC|ShiftRows:sft_g"
+Info (12128): Elaborating entity "MixColumns" for hierarchy "AES:ENC|MixColumns:mix_g"
+Warning (10540): VHDL Signal Declaration warning at MixColumns.vhd(20): used explicit default value for signal "multiplication" because signal was never assigned a value
+Info (12128): Elaborating entity "AddRoundKey" for hierarchy "AES:ENC|AddRoundKey:add_g"
+Info (12128): Elaborating entity "LCD_DISPLAY_nty" for hierarchy "LCD_DISPLAY_nty:LCD"
+Warning (10540): VHDL Signal Declaration warning at DE2_LCD_DISPLAY_arch.vhd(75): used explicit default value for signal "line1" because signal was never assigned a value
+Warning (10492): VHDL Process Statement warning at DE2_LCD_DISPLAY_arch.vhd(519): signal "ciphertext" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at DE2_LCD_DISPLAY_arch.vhd(524): signal "lcd_display_string_01" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at DE2_LCD_DISPLAY_arch.vhd(524): signal "char_count" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at DE2_LCD_DISPLAY_arch.vhd(528): signal "line1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at DE2_LCD_DISPLAY_arch.vhd(533): signal "char_count" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at DE2_LCD_DISPLAY_arch.vhd(538): signal "lcd_display_string_03" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at DE2_LCD_DISPLAY_arch.vhd(538): signal "char_count" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at DE2_LCD_DISPLAY_arch.vhd(542): signal "lcd_display_string_04" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at DE2_LCD_DISPLAY_arch.vhd(542): signal "char_count" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at DE2_LCD_DISPLAY_arch.vhd(546): signal "lcd_display_string_05" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at DE2_LCD_DISPLAY_arch.vhd(546): signal "char_count" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at DE2_LCD_DISPLAY_arch.vhd(550): signal "lcd_display_string_06" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at DE2_LCD_DISPLAY_arch.vhd(550): signal "char_count" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at DE2_LCD_DISPLAY_arch.vhd(554): signal "lcd_display_string_07" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at DE2_LCD_DISPLAY_arch.vhd(554): signal "char_count" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at DE2_LCD_DISPLAY_arch.vhd(558): signal "lcd_display_string_08" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at DE2_LCD_DISPLAY_arch.vhd(558): signal "char_count" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at DE2_LCD_DISPLAY_arch.vhd(562): signal "lcd_display_string_09" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at DE2_LCD_DISPLAY_arch.vhd(562): signal "char_count" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at DE2_LCD_DISPLAY_arch.vhd(566): signal "lcd_display_string_10" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at DE2_LCD_DISPLAY_arch.vhd(566): signal "char_count" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at DE2_LCD_DISPLAY_arch.vhd(570): signal "lcd_display_string_11" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at DE2_LCD_DISPLAY_arch.vhd(570): signal "char_count" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10631): VHDL Process Statement warning at DE2_LCD_DISPLAY_arch.vhd(497): inferring latch(es) for signal or variable "lcd_display_string_01", which holds its previous value in one or more paths through the process
+Info (10041): Inferred latch for "lcd_display_string_01[31][0]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[31][1]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[31][2]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[31][3]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[31][4]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[31][5]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[31][6]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[31][7]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[30][0]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[30][1]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[30][2]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[30][3]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[30][4]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[30][5]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[30][6]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[30][7]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[29][0]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[29][1]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[29][2]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[29][3]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[29][4]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[29][5]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[29][6]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[29][7]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[28][0]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[28][1]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[28][2]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[28][3]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[28][4]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[28][5]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[28][6]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[28][7]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[27][0]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[27][1]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[27][2]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[27][3]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[27][4]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[27][5]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[27][6]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[27][7]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[26][0]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[26][1]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[26][2]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[26][3]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[26][4]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[26][5]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[26][6]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[26][7]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[25][0]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[25][1]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[25][2]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[25][3]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[25][4]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[25][5]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[25][6]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[25][7]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[24][0]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[24][1]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[24][2]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[24][3]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[24][4]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[24][5]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[24][6]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[24][7]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[23][0]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[23][1]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[23][2]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[23][3]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[23][4]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[23][5]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[23][6]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[23][7]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[22][0]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[22][1]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[22][2]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[22][3]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[22][4]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[22][5]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[22][6]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[22][7]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[21][0]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[21][1]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[21][2]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[21][3]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[21][4]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[21][5]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[21][6]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[21][7]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[20][0]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[20][1]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[20][2]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[20][3]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[20][4]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[20][5]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[20][6]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[20][7]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[19][0]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[19][1]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[19][2]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[19][3]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[19][4]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[19][5]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[19][6]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[19][7]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[18][0]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[18][1]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[18][2]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[18][3]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[18][4]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[18][5]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[18][6]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[18][7]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[17][0]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[17][1]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[17][2]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[17][3]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[17][4]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[17][5]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[17][6]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[17][7]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[16][0]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[16][1]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[16][2]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[16][3]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[16][4]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[16][5]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[16][6]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[16][7]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[15][0]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[15][1]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[15][2]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[15][3]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[15][4]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[15][5]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[15][6]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[15][7]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[14][0]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[14][1]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[14][2]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[14][3]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[14][4]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[14][5]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[14][6]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[14][7]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[13][0]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[13][1]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[13][2]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[13][3]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[13][4]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[13][5]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[13][6]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[13][7]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[12][0]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[12][1]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[12][2]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[12][3]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[12][4]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[12][5]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[12][6]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[12][7]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[11][0]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[11][1]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[11][2]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[11][3]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[11][4]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[11][5]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[11][6]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[11][7]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[10][0]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[10][1]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[10][2]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[10][3]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[10][4]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[10][5]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[10][6]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[10][7]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[9][0]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[9][1]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[9][2]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[9][3]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[9][4]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[9][5]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[9][6]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[9][7]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[8][0]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[8][1]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[8][2]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[8][3]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[8][4]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[8][5]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[8][6]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[8][7]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[7][0]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[7][1]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[7][2]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[7][3]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[7][4]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[7][5]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[7][6]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[7][7]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[6][0]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[6][1]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[6][2]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[6][3]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[6][4]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[6][5]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[6][6]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[6][7]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[5][0]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[5][1]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[5][2]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[5][3]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[5][4]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[5][5]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[5][6]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[5][7]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[4][0]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[4][1]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[4][2]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[4][3]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[4][4]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[4][5]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[4][6]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[4][7]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[3][0]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[3][1]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[3][2]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[3][3]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[3][4]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[3][5]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[3][6]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[3][7]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[2][0]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[2][1]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[2][2]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[2][3]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[2][4]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[2][5]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[2][6]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[2][7]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[1][0]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[1][1]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[1][2]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[1][3]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[1][4]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[1][5]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[1][6]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[1][7]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[0][0]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[0][1]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[0][2]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[0][3]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[0][4]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[0][5]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[0][6]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (10041): Inferred latch for "lcd_display_string_01[0][7]" at DE2_LCD_DISPLAY_arch.vhd(497)
+Info (13025): Duplicate LATCH primitives merged into single LATCH primitive
+    Info (13026): Duplicate LATCH primitive "LCD_DISPLAY_nty:LCD|lcd_display_string_01[12][5]" merged with LATCH primitive "LCD_DISPLAY_nty:LCD|lcd_display_string_01[12][4]"
+    Info (13026): Duplicate LATCH primitive "LCD_DISPLAY_nty:LCD|lcd_display_string_01[6][5]" merged with LATCH primitive "LCD_DISPLAY_nty:LCD|lcd_display_string_01[6][4]"
+    Info (13026): Duplicate LATCH primitive "LCD_DISPLAY_nty:LCD|lcd_display_string_01[4][5]" merged with LATCH primitive "LCD_DISPLAY_nty:LCD|lcd_display_string_01[4][4]"
+    Info (13026): Duplicate LATCH primitive "LCD_DISPLAY_nty:LCD|lcd_display_string_01[14][5]" merged with LATCH primitive "LCD_DISPLAY_nty:LCD|lcd_display_string_01[14][4]"
+    Info (13026): Duplicate LATCH primitive "LCD_DISPLAY_nty:LCD|lcd_display_string_01[3][5]" merged with LATCH primitive "LCD_DISPLAY_nty:LCD|lcd_display_string_01[3][4]"
+    Info (13026): Duplicate LATCH primitive "LCD_DISPLAY_nty:LCD|lcd_display_string_01[9][5]" merged with LATCH primitive "LCD_DISPLAY_nty:LCD|lcd_display_string_01[9][4]"
+    Info (13026): Duplicate LATCH primitive "LCD_DISPLAY_nty:LCD|lcd_display_string_01[1][5]" merged with LATCH primitive "LCD_DISPLAY_nty:LCD|lcd_display_string_01[1][4]"
+    Info (13026): Duplicate LATCH primitive "LCD_DISPLAY_nty:LCD|lcd_display_string_01[11][5]" merged with LATCH primitive "LCD_DISPLAY_nty:LCD|lcd_display_string_01[11][4]"
+    Info (13026): Duplicate LATCH primitive "LCD_DISPLAY_nty:LCD|lcd_display_string_01[8][5]" merged with LATCH primitive "LCD_DISPLAY_nty:LCD|lcd_display_string_01[8][4]"
+    Info (13026): Duplicate LATCH primitive "LCD_DISPLAY_nty:LCD|lcd_display_string_01[2][5]" merged with LATCH primitive "LCD_DISPLAY_nty:LCD|lcd_display_string_01[2][4]"
+    Info (13026): Duplicate LATCH primitive "LCD_DISPLAY_nty:LCD|lcd_display_string_01[0][5]" merged with LATCH primitive "LCD_DISPLAY_nty:LCD|lcd_display_string_01[0][4]"
+    Info (13026): Duplicate LATCH primitive "LCD_DISPLAY_nty:LCD|lcd_display_string_01[10][5]" merged with LATCH primitive "LCD_DISPLAY_nty:LCD|lcd_display_string_01[10][4]"
+    Info (13026): Duplicate LATCH primitive "LCD_DISPLAY_nty:LCD|lcd_display_string_01[7][5]" merged with LATCH primitive "LCD_DISPLAY_nty:LCD|lcd_display_string_01[7][4]"
+    Info (13026): Duplicate LATCH primitive "LCD_DISPLAY_nty:LCD|lcd_display_string_01[13][5]" merged with LATCH primitive "LCD_DISPLAY_nty:LCD|lcd_display_string_01[13][4]"
+    Info (13026): Duplicate LATCH primitive "LCD_DISPLAY_nty:LCD|lcd_display_string_01[5][5]" merged with LATCH primitive "LCD_DISPLAY_nty:LCD|lcd_display_string_01[5][4]"
+    Info (13026): Duplicate LATCH primitive "LCD_DISPLAY_nty:LCD|lcd_display_string_01[15][5]" merged with LATCH primitive "LCD_DISPLAY_nty:LCD|lcd_display_string_01[15][4]"
+    Info (13026): Duplicate LATCH primitive "LCD_DISPLAY_nty:LCD|lcd_display_string_01[28][5]" merged with LATCH primitive "LCD_DISPLAY_nty:LCD|lcd_display_string_01[28][4]"
+    Info (13026): Duplicate LATCH primitive "LCD_DISPLAY_nty:LCD|lcd_display_string_01[25][5]" merged with LATCH primitive "LCD_DISPLAY_nty:LCD|lcd_display_string_01[25][4]"
+    Info (13026): Duplicate LATCH primitive "LCD_DISPLAY_nty:LCD|lcd_display_string_01[24][5]" merged with LATCH primitive "LCD_DISPLAY_nty:LCD|lcd_display_string_01[24][4]"
+    Info (13026): Duplicate LATCH primitive "LCD_DISPLAY_nty:LCD|lcd_display_string_01[29][5]" merged with LATCH primitive "LCD_DISPLAY_nty:LCD|lcd_display_string_01[29][4]"
+    Info (13026): Duplicate LATCH primitive "LCD_DISPLAY_nty:LCD|lcd_display_string_01[19][5]" merged with LATCH primitive "LCD_DISPLAY_nty:LCD|lcd_display_string_01[19][4]"
+    Info (13026): Duplicate LATCH primitive "LCD_DISPLAY_nty:LCD|lcd_display_string_01[22][5]" merged with LATCH primitive "LCD_DISPLAY_nty:LCD|lcd_display_string_01[22][4]"
+    Info (13026): Duplicate LATCH primitive "LCD_DISPLAY_nty:LCD|lcd_display_string_01[18][5]" merged with LATCH primitive "LCD_DISPLAY_nty:LCD|lcd_display_string_01[18][4]"
+    Info (13026): Duplicate LATCH primitive "LCD_DISPLAY_nty:LCD|lcd_display_string_01[23][5]" merged with LATCH primitive "LCD_DISPLAY_nty:LCD|lcd_display_string_01[23][4]"
+    Info (13026): Duplicate LATCH primitive "LCD_DISPLAY_nty:LCD|lcd_display_string_01[17][5]" merged with LATCH primitive "LCD_DISPLAY_nty:LCD|lcd_display_string_01[17][4]"
+    Info (13026): Duplicate LATCH primitive "LCD_DISPLAY_nty:LCD|lcd_display_string_01[20][5]" merged with LATCH primitive "LCD_DISPLAY_nty:LCD|lcd_display_string_01[20][4]"
+    Info (13026): Duplicate LATCH primitive "LCD_DISPLAY_nty:LCD|lcd_display_string_01[16][5]" merged with LATCH primitive "LCD_DISPLAY_nty:LCD|lcd_display_string_01[16][4]"
+    Info (13026): Duplicate LATCH primitive "LCD_DISPLAY_nty:LCD|lcd_display_string_01[21][5]" merged with LATCH primitive "LCD_DISPLAY_nty:LCD|lcd_display_string_01[21][4]"
+    Info (13026): Duplicate LATCH primitive "LCD_DISPLAY_nty:LCD|lcd_display_string_01[30][5]" merged with LATCH primitive "LCD_DISPLAY_nty:LCD|lcd_display_string_01[30][4]"
+    Info (13026): Duplicate LATCH primitive "LCD_DISPLAY_nty:LCD|lcd_display_string_01[27][5]" merged with LATCH primitive "LCD_DISPLAY_nty:LCD|lcd_display_string_01[27][4]"
+    Info (13026): Duplicate LATCH primitive "LCD_DISPLAY_nty:LCD|lcd_display_string_01[26][5]" merged with LATCH primitive "LCD_DISPLAY_nty:LCD|lcd_display_string_01[26][4]"
+    Info (13026): Duplicate LATCH primitive "LCD_DISPLAY_nty:LCD|lcd_display_string_01[31][5]" merged with LATCH primitive "LCD_DISPLAY_nty:LCD|lcd_display_string_01[31][4]"
+Info (13000): Registers with preset signals will power-up high
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Warning (13009): TRI or OPNDRN buffers permanently enabled
+    Warning (13010): Node "LCD_DISPLAY_nty:LCD|data_bus[0]"
+    Warning (13010): Node "LCD_DISPLAY_nty:LCD|data_bus[1]"
+    Warning (13010): Node "LCD_DISPLAY_nty:LCD|data_bus[2]"
+    Warning (13010): Node "LCD_DISPLAY_nty:LCD|data_bus[3]"
+    Warning (13010): Node "LCD_DISPLAY_nty:LCD|data_bus[4]"
+    Warning (13010): Node "LCD_DISPLAY_nty:LCD|data_bus[5]"
+    Warning (13010): Node "LCD_DISPLAY_nty:LCD|data_bus[6]"
+    Warning (13010): Node "LCD_DISPLAY_nty:LCD|data_bus[7]"
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "lcd_rw" is stuck at GND
+    Warning (13410): Pin "lcd_on" is stuck at VCC
+    Warning (13410): Pin "lcd_blon" is stuck at VCC
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 6533 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 6 input pins
+    Info (21059): Implemented 5 output pins
+    Info (21060): Implemented 8 bidirectional pins
+    Info (21061): Implemented 6514 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 40 warnings
+    Info: Peak virtual memory: 4660 megabytes
+    Info: Processing ended: Sat Apr 11 02:46:16 2020
+    Info: Elapsed time: 00:00:54
+    Info: Total CPU time (on all processors): 00:00:53
+
+

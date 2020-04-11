@@ -1,0 +1,13 @@
+library IEEE;
+library WORK;
+use IEEE.STD_LOGIC_1164.all;
+use IEEE.STD_LOGIC_UNSIGNED.all;
+use IEEE.NUMERIC_STD.all;
+use WORK.AES_TYPES.all;
+
+entity EncryptAndDisplay is 
+end entity;
+
+architecture structural of EncryptAndDisplay is
+begin
+end structural;
